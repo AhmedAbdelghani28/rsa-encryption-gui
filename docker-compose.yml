@@ -1,0 +1,11 @@
+services:
+  rsa-gui:
+    build: .
+    image: rsa-encryption-gui:latest
+    container_name: rsa-encryption-gui
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    network_mode: host
+    restart: unless-stopped
